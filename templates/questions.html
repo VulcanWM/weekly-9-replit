@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>VulcanWM's Weekly 9 Submission</title>
+    <link href="{{ url_for('static', filename='main.css') }}" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <div class="header">
+      <h1>{{type}} question on single variable linear equations</h1>
+    </div>
+    <div class="navbar">
+      <a class="nav-link nav-link-ltr" href="/">Home</a>
+      <a class="nav-link nav-link-ltr" href="/first">Solve ax + b = c</a>
+      <a class="nav-link nav-link-ltr" href="/second">Solve ax + b = cx + d</a>
+      <a class="nav-link nav-link-ltr" href="/twovar">Solve two variable linear equations</a>
+      <a class="nav-link nav-link-ltr" href="/threevar">Solve three variable linear equations</a>
+      <a class="nav-link nav-link-ltr" href="/fourvar">Solve four variable linear equations</a>
+      <a class="nav-link nav-link-ltr" href="/slope_intercept">Equation of line going through two points</a>
+      <a class="nav-link nav-link-ltr" href="/questions/easy">Easy question on single variable linear equations</a>
+      <a class="nav-link nav-link-ltr" href="/questions/medium">Medium question on single variable linear equations</a>
+      <a class="nav-link nav-link-ltr" href="/questions/hard">Hard question on single variable linear equations</a>
+    </div>
+    <div class="content">
+      <h3>Solve {{question}}</h3>
+      <form method="POST" action="/answer/{{equation}}">
+        <input type="text" id="answer" placeholder="answer" name="answer" required>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+    <script src="{{ url_for('static', filename='sticky.js') }}"></script>
+  </body>
+</html>

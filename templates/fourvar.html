@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>VulcanWM's Weekly 9 Submission</title>
+    <link href="{{ url_for('static', filename='main.css') }}" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link href="{{ url_for('static', filename='prism.css') }}" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="header">
+      <h1>Four Variable Linear Equations</h1>
+    </div>
+    <div class="navbar">
+      <a class="nav-link nav-link-ltr" href="/">Home</a>
+      <a class="nav-link nav-link-ltr" href="/first">Solve ax + b = c</a>
+      <a class="nav-link nav-link-ltr" href="/second">Solve ax + b = cx + d</a>
+      <a class="nav-link nav-link-ltr" href="/twovar">Solve two variable linear equations</a>
+      <a class="nav-link nav-link-ltr" href="/threevar">Solve three variable linear equations</a>
+      <a class="nav-link nav-link-ltr" href="/fourvar">Solve four variable linear equations</a>
+      <a class="nav-link nav-link-ltr" href="/slope_intercept">Equation of line going through two points</a>
+      <a class="nav-link nav-link-ltr" href="/questions/easy">Easy question on single variable linear equations</a>
+      <a class="nav-link nav-link-ltr" href="/questions/medium">Medium question on single variable linear equations</a>
+      <a class="nav-link nav-link-ltr" href="/questions/hard">Hard question on single variable linear equations</a>
+    </div>
+    <div class="content">
+      {% if error != None %}
+        <p>{{error}}</p>
+      {% endif %}
+      {% if answer != None %}
+        <p>{{answer}}</p>
+      {% endif %}
+      <h3>Enter your four variable eqations</h3>
+      <form method="POST" action="{{ url_for('fourvarfunc') }}">
+        <input type="text" id="a" placeholder="a" name="a" required>x + 
+        <input type="text" id="b" name="b" placeholder="b" required>y +
+        <input type="text" id="c" name="c" placeholder="c" required>z +
+        <input type="text" id="d" name="d" placeholder="d" required>w = 
+        <input type="text" id="e" name="e" placeholder="e" required>
+        <br>
+        <input type="text" id="f" placeholder="f" name="f" required>x + 
+        <input type="text" id="g" name="g" placeholder="g" required>y +
+        <input type="text" id="h" name="h" placeholder="h" required>z +
+        <input type="text" id="i" name="i" placeholder="i" required>w = 
+        <input type="text" id="j" name="j" placeholder="j" required>
+        <br>
+        <input type="text" id="k" placeholder="k" name="k" required>x + 
+        <input type="text" id="l" name="l" placeholder="l" required>y 
+        <input type="text" id="m" name="m" placeholder="m" required>z + 
+        <input type="text" id="n" name="n" placeholder="n" required>w = 
+        <input type="text" id="o" name="o" placeholder="o" required>
+        <br>
+        <input type="text" id="p" placeholder="p" name="p" required>x + 
+        <input type="text" id="q" name="q" placeholder="q" required>y 
+        <input type="text" id="r" name="r" placeholder="r" required>z + 
+        <input type="text" id="s" name="s" placeholder="s" required>w = 
+        <input type="text" id="t" name="t" placeholder="t" required>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+    <script src="{{ url_for('static', filename='prism.js') }}"></script>
+    <script src="{{ url_for('static', filename='sticky.js') }}"></script>
+  </body>
+</html>

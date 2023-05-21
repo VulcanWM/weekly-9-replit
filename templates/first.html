@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>VulcanWM's Weekly 9 Submission</title>
+    <link href="{{ url_for('static', filename='main.css') }}" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link href="{{ url_for('static', filename='prism.css') }}" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="header">
+      <h1>Solve ax + b = c</h1>
+    </div>
+    <div class="navbar">
+      <a class="nav-link nav-link-ltr" href="/">Home</a>
+      <a class="nav-link nav-link-ltr" href="/first">Solve ax + b = c</a>
+      <a class="nav-link nav-link-ltr" href="/second">Solve ax + b = cx + d</a>
+      <a class="nav-link nav-link-ltr" href="/twovar">Solve two variable linear equations</a>
+      <a class="nav-link nav-link-ltr" href="/threevar">Solve three variable linear equations</a>
+      <a class="nav-link nav-link-ltr" href="/fourvar">Solve four variable linear equations</a>
+      <a class="nav-link nav-link-ltr" href="/slope_intercept">Equation of line going through two points</a>
+      <a class="nav-link nav-link-ltr" href="/questions/easy">Easy question on single variable linear equations</a>
+      <a class="nav-link nav-link-ltr" href="/questions/medium">Medium question on single variable linear equations</a>
+      <a class="nav-link nav-link-ltr" href="/questions/hard">Hard question on single variable linear equations</a>
+    </div>
+    <div class="content">
+      {% if error != None %}
+        <p>{{error}}</p>
+      {% endif %}
+      {% if answer != None %}
+        <p>{{answer}}</p>
+      {% endif %}
+      <h3>Enter your ax + b = c eqation</h3>
+      <form method="POST" action="{{ url_for('firstfunc') }}">
+        <input type="text" id="a" placeholder="a" name="a" required>x + 
+        <input type="text" id="b" name="b" placeholder="b" required> =
+        <input type="text" id="c" name="c" placeholder="c" required>
+        <input type="submit" value="Submit">
+      </form>
+      <h3>What is ax + b = c</h3>
+      <p>ax + b = c is an equation in which a, b, c and x are all numbers. When it says to solve the eqation, you need to work out the value of x. a, b, and c are constants, whereas x is a variable.</p>
+      <h3>How to solve ax + b = c</h3>
+      <ol>
+        <li>First of all, you need minus b from both sides, so now the equation is ax = c - b</li>
+        <li>Then, you need to divide both sides by a, so now the equation is x = (c - b) / a</li>
+        <li>Now do the minusing and dividing and you should have your answer!</li>
+      </ol>
+      <h3>A step-by-step example</h3>
+      <p>The example I'll give is 2.5x + 3 = 8</p>
+      <ol>
+        <li>Minus the 3 from both sides giving 2.5x = 5</li>
+        <li>Divide 5 by 2.5 which gives 2.</li>
+        <li>So 2 is your answer!</li>
+      </ol>
+      <h3>How to do this function in Python</h3>
+<pre><code class="language-python">def function(a, b, c): # defining the function, you can name it whatever you want
+  try: # you can catch errors with this
+    # the next three lines is converting the numbers to floats so you can do the operations with them
+    a = float(a)
+    b = float(b)
+    c = float(c)
+    atimesx = c - b # first step
+    answer = atimesx / a # second step
+    return answer # returns the answer to the caller code
+  except ValueError: # catches if someone doesn't enter numbers
+    return "You didn't enter numbers!" # returns "You didn't enter numbers!" to the caller code
+</code></pre>
+    </div>
+    <script src="{{ url_for('static', filename='prism.js') }}"></script>
+    <script src="{{ url_for('static', filename='sticky.js') }}"></script>
+  </body>
+</html>
